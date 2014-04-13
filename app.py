@@ -2,6 +2,11 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 from allergen_lookup import get_allergens,get_product
 
+
+@app.route('/')
+def home():
+    return  "<html><h1>I can see you</h1></html>"
+
 @app.route('/lookup/<upc_code>')
 def lookup(upc_code):
     print "Started"
