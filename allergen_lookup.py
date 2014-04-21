@@ -28,7 +28,8 @@ def get_product(upc_code):
                                  'brand',
                                  'nutrition',
                                  'ingredients',
-                                 'manufacturer'
+                                 'manufacturer',
+                                 'image'
                                  ]),
         )).json()
 
