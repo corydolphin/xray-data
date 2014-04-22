@@ -2,6 +2,6 @@ git+https://github.com/dgrtwo/ParsePy.git
 lxml
 requests
 pyquery
-flask-cors
+flask-cors==1.3.0
 gevent
 gunicorn
