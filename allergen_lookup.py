@@ -19,7 +19,7 @@ def make_auth_token(upc_code):
     return base64.b64encode(hmac.new(auf, upc_code, hashlib.sha1).digest())
 
 def get_product(upc_code):
-    return requests.get(API_BASE_URL, params=dict(
+    p = requests.get(API_BASE_URL, params=dict(
         upc_code= upc_code,
         app_key=kee,
         signature=make_auth_token(upc_code),
@@ -32,7 +32,8 @@ def get_product(upc_code):
                                  'image'
                                  ]),
         )).json()
-
+    p['image'] = p.get('image', 'null')
+    return p
 
 def get_allergens(description):
     d = pq(get_search_url(description))
